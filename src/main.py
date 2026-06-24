@@ -6,7 +6,7 @@ print("===================================")
 name = input("Enter your name: ")
 
 print("\nWelcome,", name)
-
+interest = input("Enter your interest (AI/Data Science/Software Development): ")
 print("\nSelect your strongest skill:")
 print("1. Python")
 print("2. SQL")
