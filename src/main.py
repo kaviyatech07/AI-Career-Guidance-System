@@ -16,6 +16,8 @@ skill = input("Enter your choice (1/2/3): ")
 print("\nInterest Selected:", interest)
 print("Skill Selected:", skill)
 print("\nGenerating Career Recommendations...")
+print("Based on your interest in", interest)
+print("Hello", name + ", here are some career options for you:")
 if skill == "1":
     print("\nRecommended Careers:")
     print("\n===== CAREER RECOMMENDATIONS =====")
