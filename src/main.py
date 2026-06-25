@@ -18,18 +18,21 @@ print("Skill Selected:", skill)
 print("\nGenerating Career Recommendations...")
 if skill == "1":
     print("\nRecommended Careers:")
+    print("\n===== CAREER RECOMMENDATIONS =====")
     print("- AI Engineer")
     print("- Machine Learning Engineer")
     print("- Python Developer")
 
 elif skill == "2":
     print("\nRecommended Careers:")
+    print("\n===== CAREER RECOMMENDATIONS =====")
     print("- Data Analyst")
     print("- Database Developer")
     print("- Business Intelligence Analyst")
 
 elif skill == "3":
     print("\nRecommended Careers:")
+    print("\n===== CAREER RECOMMENDATIONS =====")
     print("- Software Developer")
     print("- System Analyst")
     print("- Product Engineer")
