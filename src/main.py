@@ -19,25 +19,23 @@ print("\nGenerating Career Recommendations...")
 print("Based on your interest in", interest)
 print("Hello", name + ", here are some career options for you:")
 if skill == "1":
-    print("\nRecommended Careers:")
     print("\n===== CAREER RECOMMENDATIONS =====")
-    print("- AI Engineer")
-    print("- Machine Learning Engineer")
-    print("- Python Developer")
+   
+ for career in careers["AI"]:
+        print("-", career)
 
 elif skill == "2":
-    print("\nRecommended Careers:")
     print("\n===== CAREER RECOMMENDATIONS =====")
-    print("- Data Analyst")
-    print("- Database Developer")
-    print("- Business Intelligence Analyst")
+
+    for career in careers["AI"]:
+        print("-", career)
 
 elif skill == "3":
-    print("\nRecommended Careers:")
     print("\n===== CAREER RECOMMENDATIONS =====")
-    print("- Software Developer")
-    print("- System Analyst")
-    print("- Product Engineer")
+
+     for career in careers["AI"]:
+        print("-", career)
+
 
 else:
     print("\nInvalid choice.")
