@@ -1,4 +1,5 @@
 from careers import careers
+from courses import courses
 print("===================================")
 print(" AI CAREER GUIDANCE SYSTEM ")
 print("===================================")
