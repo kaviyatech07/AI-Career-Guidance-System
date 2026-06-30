@@ -1,42 +1,59 @@
 from careers import careers
 from courses import courses
-print("===================================")
-print(" AI CAREER GUIDANCE SYSTEM ")
-print("===================================")
 
-name = input("Enter your name: ")
+print("=" * 50)
+print("      AI CAREER GUIDANCE SYSTEM")
+print("=" * 50)
 
+# User Name
+name = input("Enter your name: ").strip()
 print("\nWelcome,", name)
-interest = input("Enter your interest (AI/Data Science/Software Development): ")
-print("\nSelect your strongest skill:")
-print("1. Python")
-print("2. SQL")
-print("3. Problem Solving")
 
-skill = input("Enter your choice (1/2/3): ")
-print("\nInterest Selected:", interest)
-print("Skill Selected:", skill)
-print("\nGenerating Career Recommendations...")
-print("Based on your interest in", interest)
-print("Hello", name + ", here are some career options for you:")
-if skill == "1":
-    print("\n===== CAREER RECOMMENDATIONS =====")
+# User Interest
+interest = input("Enter your interest (AI/Data Science/Software Development): ").strip()
 
-    for career in careers["AI"]:
-        print("-", career)
+# Menu
+print("\nWhat do you want to see?")
+print("1. Career Recommendations")
+print("2. Recommended Courses")
+print("3. Both")
 
-elif skill == "2":
-    print("\n===== CAREER RECOMMENDATIONS =====")
+choice = input("Enter your choice (1/2/3): ")
 
-    for career in careers["Data Science"]:
-        print("-", career)
-    
-elif skill == "3":
-    print("\n===== CAREER RECOMMENDATIONS =====")
+print("\nYou selected:", interest)
 
-    for career in careers["Software Development"]:
-        print("-", career)
-
+# Check valid interest
+if interest not in careers:
+    print("\nInvalid interest! Please restart the program.")
 else:
-    print("\nInvalid choice.")
 
+    # Show Careers
+    if choice == "1":
+        print("\n===== CAREER RECOMMENDATIONS =====")
+        for career in careers[interest]:
+            print("-", career)
+
+    # Show Courses
+    elif choice == "2":
+        print("\n===== RECOMMENDED COURSES =====")
+        for course in courses[interest]:
+            print("-", course)
+
+    # Show Both
+    elif choice == "3":
+        print("\n===== CAREER RECOMMENDATIONS =====")
+        for career in careers[interest]:
+            print("-", career)
+
+        print("\n===== RECOMMENDED COURSES =====")
+        for course in courses[interest]:
+            print("-", course)
+
+    # Invalid Menu Choice
+    else:
+        print("\nInvalid choice!")
+
+print("\n" + "=" * 50)
+print("Thank you for using AI Career Guidance System,", name + "!")
+print("Best wishes for your future career! 🚀")
+print("=" * 50)
