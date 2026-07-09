@@ -8,9 +8,9 @@ st.set_page_config(
 
 st.title("🤖 AI Career Guidance System")
 
-st.write("Welcome to the AI Career Guidance System!")
+st.write("Welcome to the AI Career Guidance System")
 
-name = st.text_input("Enter Your Name")
+name = st.text_input("Enter your Name")
 
 interest = st.selectbox(
     "Select Your Interest",
@@ -21,6 +21,7 @@ interest = st.selectbox(
     ]
 )
 
-if st.button("Continue"):
-    st.success(f"Welcome {name}!")
+if st.button("Show Recommendation"):
+    st.success(f"Welcome {name}")
+
     st.write("Interest:", interest)
