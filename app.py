@@ -1,3 +1,5 @@
+from careers import careers
+from courses import courses
 import streamlit as st
 
 st.set_page_config(
