@@ -3,17 +3,25 @@ from courses import courses
 from career_predictor import predict_career
 import streamlit as st
 
+# -----------------------------
+# Page Configuration
+# -----------------------------
 st.set_page_config(
     page_title="AI Career Guidance System",
     page_icon="🤖",
     layout="wide"
 )
 
+# -----------------------------
+# Title
+# -----------------------------
 st.title("🤖 AI Career Guidance System")
+st.write("Welcome to the AI Career Guidance System!")
 
-st.write("Welcome to the AI Career Guidance System")
-
-name = st.text_input("Enter your Name")
+# -----------------------------
+# User Information
+# -----------------------------
+name = st.text_input("Enter Your Name")
 
 st.subheader("📊 Rate Your Skills")
 
@@ -23,9 +31,12 @@ math_skill = st.slider("Mathematics", 1, 10, 5)
 communication_skill = st.slider("Communication", 1, 10, 5)
 problem_skill = st.slider("Problem Solving", 1, 10, 5)
 
+# -----------------------------
+# Prediction Button
+# -----------------------------
 if st.button("Predict Career"):
 
-    st.success(f"Welcome {name}")
+    st.success(f"Welcome, {name}!")
 
     user_skills = {
         "Python": python_skill,
@@ -37,10 +48,16 @@ if st.button("Predict Career"):
 
     results = predict_career(user_skills)
 
+    # Best Career
     best_career = results[0][0]
     best_score = results[0][1]
 
-    st.subheader("🎯 Best Career")
+    st.subheader("🏆 Best Career")
     st.success(best_career)
+    st.write(f"📊 Match Score: **{best_score}%**")
 
-    st.write(f"📊 Match Score: {best_score}%")
+    # Top Career Matches
+    st.subheader("🎯 Top 3 Career Matches")
+
+    for career, score in results[:3]:
+        st.write(f"✅ {career} — {score}% Match")
