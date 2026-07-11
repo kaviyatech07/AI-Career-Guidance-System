@@ -1,5 +1,3 @@
-# roadmap.py
-
 roadmaps = {
 
     "AI Engineer": [
@@ -47,15 +45,5 @@ roadmaps = {
     ]
 }
 
-
 def show_roadmap(career):
-
-    print("\n" + "=" * 50)
-    print("        LEARNING ROADMAP")
-    print("=" * 50)
-
-    if career in roadmaps:
-        for step_no, step in enumerate(roadmaps[career], start=1):
-            print(f"{step_no}. {step}")
-    else:
-        print("Roadmap not available.")
+    return roadmaps.get(career, [])
