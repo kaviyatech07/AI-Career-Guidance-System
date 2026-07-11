@@ -64,4 +64,4 @@ def predict_career(user_skills):
         percentage = (score / 50) * 100
         scores[career] = round(percentage, 2)
 
-    return sorted(scores.items(), key=lambda x: x[1],
+    return sorted(scores.items(), key=lambda x: x[1], reverse=True)
