@@ -56,6 +56,21 @@ if st.button("Predict Career"):
     st.success(best_career)
     st.write(f"📊 Match Score: **{best_score}%**")
 
+    st.subheader("📚 Recommended Courses")
+
+career_to_interest = {
+    "AI Engineer": "AI",
+    "Data Scientist": "Data Science",
+    "Software Developer": "Software Development"
+}
+
+if best_career in career_to_interest:
+    interest = career_to_interest[best_career]
+
+    if interest in courses:
+        for course in courses[interest]:
+            st.write(f"📘 {course}")
+
     # Top Career Matches
     st.subheader("🎯 Top 3 Career Matches")
 
