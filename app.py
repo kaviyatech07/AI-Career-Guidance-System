@@ -1,28 +1,25 @@
 from careers import careers
 from courses import courses
 from career_predictor import predict_career
+from roadmap import show_roadmap
 import streamlit as st
+import pandas as pd
 
-# -----------------------------
 # Page Configuration
-# -----------------------------
 st.set_page_config(
     page_title="AI Career Guidance System",
     page_icon="🤖",
     layout="wide"
 )
 
-# -----------------------------
 # Title
-# -----------------------------
 st.title("🤖 AI Career Guidance System")
 st.write("Welcome to the AI Career Guidance System!")
 
-# -----------------------------
-# User Information
-# -----------------------------
+# User Name
 name = st.text_input("Enter Your Name")
 
+# Skill Assessment
 st.subheader("📊 Rate Your Skills")
 
 python_skill = st.slider("Python", 1, 10, 5)
@@ -31,9 +28,7 @@ math_skill = st.slider("Mathematics", 1, 10, 5)
 communication_skill = st.slider("Communication", 1, 10, 5)
 problem_skill = st.slider("Problem Solving", 1, 10, 5)
 
-# -----------------------------
-# Prediction Button
-# -----------------------------
+# Predict Button
 if st.button("Predict Career"):
 
     st.success(f"Welcome, {name}!")
@@ -54,25 +49,29 @@ if st.button("Predict Career"):
 
     st.subheader("🏆 Best Career")
     st.success(best_career)
-    st.write(f"📊 Match Score: **{best_score}%**")
+    st.write(f"📊 Match Score: {best_score}%")
 
-    st.subheader("📚 Recommended Courses")
-
-career_to_interest = {
-    "AI Engineer": "AI",
-    "Data Scientist": "Data Science",
-    "Software Developer": "Software Development"
-}
-
-if best_career in career_to_interest:
-    interest = career_to_interest[best_career]
-
-    if interest in courses:
-        for course in courses[interest]:
-            st.write(f"📘 {course}")
-
-    # Top Career Matches
+    # Top 3 Career Matches
     st.subheader("🎯 Top 3 Career Matches")
 
     for career, score in results[:3]:
-        st.write(f"✅ {career} — {score}% Match")
+        st.write(f"✅ {career} - {score}%")
+
+    st.subheader("📊 Career Match Scores")
+
+chart_data = pd.DataFrame(
+    results,
+    columns=["Career", "Match Score"]
+)
+
+st.bar_chart(
+    chart_data.set_index("Career")
+)
+
+    # Learning Roadmap
+    st.subheader("🗺️ Learning Roadmap")
+
+    roadmap = show_roadmap(best_career)
+
+    for i, step in enumerate(roadmap, start=1):
+        st.write(f"{i}. {step}")
