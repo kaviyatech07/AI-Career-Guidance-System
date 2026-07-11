@@ -1,5 +1,6 @@
 from careers import careers
 from courses import courses
+from career_predictor import predict_career
 import streamlit as st
 
 st.set_page_config(
@@ -14,16 +15,32 @@ st.write("Welcome to the AI Career Guidance System")
 
 name = st.text_input("Enter your Name")
 
-interest = st.selectbox(
-    "Select Your Interest",
-    [
-        "AI",
-        "Data Science",
-        "Software Development"
-    ]
-)
+st.subheader("📊 Rate Your Skills")
 
-if st.button("Show Recommendation"):
+python_skill = st.slider("Python", 1, 10, 5)
+ml_skill = st.slider("Machine Learning", 1, 10, 5)
+math_skill = st.slider("Mathematics", 1, 10, 5)
+communication_skill = st.slider("Communication", 1, 10, 5)
+problem_skill = st.slider("Problem Solving", 1, 10, 5)
+
+if st.button("Predict Career"):
+
     st.success(f"Welcome {name}")
 
-    st.write("Interest:", interest)
+    user_skills = {
+        "Python": python_skill,
+        "Machine Learning": ml_skill,
+        "Mathematics": math_skill,
+        "Communication": communication_skill,
+        "Problem Solving": problem_skill
+    }
+
+    results = predict_career(user_skills)
+
+    best_career = results[0][0]
+    best_score = results[0][1]
+
+    st.subheader("🎯 Best Career")
+    st.success(best_career)
+
+    st.write(f"📊 Match Score: {best_score}%")
