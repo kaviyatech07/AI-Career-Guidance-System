@@ -82,3 +82,16 @@ B.Tech Artificial Intelligence & Data Science
 
 GitHub: https://github.com/kaviyatech07
 
+## 📸 Screenshots
+
+### Home Page
+
+![Home](assets/images/home.png)
+
+### Career Prediction
+
+![Prediction](assets/images/prediction.png)
+
+### Learning Roadmap
+
+![Roadmap](assets/images/roadmap.png)
