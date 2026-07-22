@@ -2,6 +2,7 @@ from careers import careers
 from courses import courses
 from career_predictor import predict_career
 from roadmap import show_roadmap
+from career_info import career_info
 import streamlit as st
 import pandas as pd
 
